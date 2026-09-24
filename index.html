@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <!-- About Section (좌우 사진 + 가운데 본문 배치) -->
+    <!-- About Section (좌우 사진 + 캡션 + 가운데 본문 배치) -->
     <section id="about" class="py-24 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -109,16 +109,31 @@
             </h2>
         </div>
 
-        <!-- 이미지 두 장을 좌우에 나란히 배치 -->
+        <!-- 이미지 두 장과 각각의 캡션을 좌우에 나란히 배치 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-            <!-- 왼쪽 사진 (Dopamine) -->
-            <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3]">
-                <img src="Dopamine.jpg" alt="Dopamine" class="w-full h-full object-cover">
+            
+            <!-- 왼쪽 사진 그룹 (이미지 + 캡션) -->
+            <div class="flex flex-col space-y-3">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3]">
+                    <img src="Dopamine.jpg" alt="Dopamine" class="w-full h-full object-cover">
+                </div>
+                <!-- 이미지 밑 글씨 (캡션) -->
+                <p class="text-sm text-slate-600 dark:text-slate-400 font-medium text-center">
+                    Dopamine neuron in the ventral tegmental area
+                </p>
             </div>
-            <!-- 오른쪽 사진 (CGRP) -->
-            <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3]">
-                <img src="CGRP.jpg" alt="CGRP" class="w-full h-full object-cover">
+
+            <!-- 오른쪽 사진 그룹 (이미지 + 캡션) -->
+            <div class="flex flex-col space-y-3">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3]">
+                    <img src="CGRP.jpg" alt="CGRP" class="w-full h-full object-cover">
+                </div>
+                <!-- 이미지 밑 글씨 (캡션) -->
+                <p class="text-sm text-slate-600 dark:text-slate-400 font-medium text-center">
+                    CGRP neurons in the parabrachial nucleus
+                </p>
             </div>
+
         </div>
 
         <!-- 설명 텍스트를 하단에 넓게 배치 -->
@@ -133,8 +148,6 @@
 
     </div>
 </section>    
-
-    
 
     <!-- Research Areas Section -->
     <section id="research" class="py-24">
