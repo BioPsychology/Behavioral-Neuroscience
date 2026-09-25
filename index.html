@@ -1,4 +1,4 @@
-8ㅊ <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -97,11 +97,10 @@
         </div>
     </section>
 
-    <!-- About Section (좌우 사진 + 캡션 + 가운데 본문 배치) -->
+    <!-- About Section -->
     <section id="about" class="py-24 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- 상단 타이틀 -->
         <div class="text-center max-w-3xl mx-auto mb-12">
             <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-wider">ABOUT OUR LAB</span>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2 leading-snug">
@@ -109,34 +108,26 @@
             </h2>
         </div>
 
-        <!-- 이미지 두 장과 각각의 캡션을 좌우에 나란히 배치 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-            
-            <!-- 왼쪽 사진 그룹 (이미지 + 캡션) -->
             <div class="flex flex-col space-y-3">
                 <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3]">
                     <img src="Dopamine.jpg" alt="Dopamine" class="w-full h-full object-cover">
                 </div>
-                <!-- 이미지 밑 글씨 (캡션) -->
                 <p class="text-sm text-slate-600 dark:text-slate-400 font-medium text-center">
                     Dopamine neuron in the ventral tegmental area
                 </p>
             </div>
 
-            <!-- 오른쪽 사진 그룹 (이미지 + 캡션) -->
             <div class="flex flex-col space-y-3">
                 <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 aspect-[4/3]">
                     <img src="CGRP.jpg" alt="CGRP" class="w-full h-full object-cover">
                 </div>
-                <!-- 이미지 밑 글씨 (캡션) -->
                 <p class="text-sm text-slate-600 dark:text-slate-400 font-medium text-center">
                     CGRP neurons in the parabrachial nucleus
                 </p>
             </div>
-
         </div>
 
-        <!-- 설명 텍스트를 하단에 넓게 배치 -->
         <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 sm:p-10 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700">
             <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed text-justify">
                 생물심리학 연구실에서는 다양한 신경과학적 기법을 활용하여 유전자 조작 마우스에서 정서와 동기의 신경 회로를 연구하고 있습니다. 
@@ -149,8 +140,6 @@
     </div>
 </section>    
 
-
-
     <!-- Research Areas Section -->
     <section id="research" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,7 +151,6 @@
                 </p>
             </div>
             
-            <!-- 대형 동영상 카드 및 하단 설명 캡션 -->
             <div class="max-w-4xl mx-auto">
                 <div class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
                     <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900">
@@ -172,7 +160,6 @@
                         </video>
                     </div>
                 </div>
-                <!-- 동영상 아래 캡션 문구 추가 -->
                 <p class="text-center text-sm sm:text-base text-slate-500 dark:text-slate-400 font-medium mt-4">
                     Behavioral experiment in an operant chamber
                 </p>
@@ -180,14 +167,10 @@
         </div>
     </section>
 
-            
-    
-
-    
     <!-- Team Section -->
     <section id="team" class="py-24 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto 
+            <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Our Team</h2>
                 <h3 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Lab Member</h3>
             </div>
@@ -198,18 +181,17 @@
                     <img src="조용상교수님.png" alt="Professor" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <div class="inline-block px-3 py-1 rounded-md bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold mb-3">Alumni</div>
+                    <div class="inline-block px-3 py-1 rounded-md bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold mb-3">PI</div>
                     <h4 class="text-2xl font-bold mb-1">Yong Sang Jo <span class="text-base font-normal text-slate-500 dark:text-slate-400">Ph.D.</span></h4>
                     <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mb-4">Associate Professor</p>
                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
-                        -  ​B.A. in Psychology, Korea University
+                        -  B.A. in Psychology, Korea University
                     <br>-  M.A. in Biopsychology, Korea University
                     <br>-  Ph.D. in Behavioral Neuroscience, University of Washington, Seattle
-                    <br>-  Senior research fellow, Department of Psychiatry and Behavioral Sciences &        
+                    <br>-  Senior research fellow, Department of Psychiatry and Behavioral Sciences &         
                     <br>   Pharmachology, University of Washington, Seattle, USA
                     <br>-  Assistant Professor, School of Psychology, Korea University
                     <br>-  Associate Professor, School of Psychology, Korea University (current)
-                        
                     </p>
                     <div class="flex space-x-4 text-slate-600 dark:text-slate-400">
                         <a href="#" class="hover:text-brand-600 transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
@@ -227,11 +209,12 @@
                         <img src="이지현.png" alt="Ji Hyun Lee" class="w-full h-full object-cover">
                     </div>
                     <h5 class="font-bold text-lg mb-1">Ji Hyun Lee</h5>
-                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Integrated Course
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Integrated Course
                         <br>
-                        <a href="mailto:hyun6173@korea.ac.kr" class="text-slate-500 dark:text-slate-400 hover:underline">hyun6173@korea.ac.kr</a></p>          
+                        <a href="mailto:hyun6173@korea.ac.kr" class="text-slate-500 dark:text-slate-400 hover:underline">hyun6173@korea.ac.kr</a>
+                    </p>         
                     <p class="text-sm text-brand-600 dark:text-brand-400 font-medium">Addiction, Dopamine</p>
-                </div>        
+                </div>       
                 
                 <!-- Member 2 -->
                 <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
@@ -239,9 +222,10 @@
                         <img src="조은솔.png" alt="Eunsol Cho" class="w-full h-full object-cover">
                     </div>
                     <h5 class="font-bold text-lg mb-1">Eunsol Cho</h5>
-                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Master Course
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Master Course
                         <br>
-                        <a href="mailto:mihael0817@gmail.com" class="text-slate-500 dark:text-slate-400 hover:underline">mihael0817@gmail.com</a></p>          
+                        <a href="mailto:mihael0817@gmail.com" class="text-slate-500 dark:text-slate-400 hover:underline">mihael0817@gmail.com</a>
+                    </p>         
                     <p class="text-sm text-brand-600 dark:text-brand-400 font-medium">Central amygdala, Dopamine, Active avoidance</p>
                 </div>   
                 
@@ -251,35 +235,34 @@
                         <img src="이다혜.png" alt="Dahye Lee" class="w-full h-full object-cover">
                     </div>
                     <h5 class="font-bold text-lg mb-1">Dahye Lee</h5>
-                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Master Course
-                        <br
-                        <a href="dlekgP8289@gmail.com" class="text-slate-500 dark:text-slate-400 hover:underline">dlekgP8289@gmail.com</a></p>          
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">Master Course
+                        <br>
+                        <a href="mailto:dlekgP8289@gmail.com" class="text-slate-500 dark:text-slate-400 hover:underline">dlekgP8289@gmail.com</a>
+                    </p>         
                     <p class="text-sm text-brand-600 dark:text-brand-400 font-medium">Defensive behavior</p>
                 </div> 
 
-                
                 <!-- Member 4 -->
-                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center flex flex-col justify-between">
-                    <div>
-                        <div class="w-24 h-32 rounded-xl overflow-hidden mx-auto mb-4 shadow-sm">
-                            <img src="https://placehold.co/200x250/1e293b/22c55e?text=Alumni" alt="Minhyeong Kim" class="w-full h-full object-cover">
-                        </div>
-                        <h5 class="font-bold text-lg mb-1">Minhyeong Kim</h5>
-                        
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">
-                            Animal Husbandary
-                        </p>
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+                    <div class="w-24 h-32 rounded-xl overflow-hidden mx-auto mb-4 shadow-sm">
+                        <img src="blank.png" alt="Minhyeong Kim" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x250/1e293b/ffffff?text=Minhyeong'">
                     </div>
-
-                    <!-- 우측 하단에 위치하며 별도 페이지(alumni.html)로 이동하는 Alumni 링크 박스 -->
-                    <div class="flex justify-end mt-4">
-                        <a href="alumni.html" class="inline-block px-3 py-1 rounded-md bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-xs font-semibold hover:bg-brand-100 dark:hover:bg-brand-900 transition-colors shadow-sm">
-                            Alumni →
-                        </a>
-                    </div>
+                    <h5 class="font-bold text-lg mb-1">Minhyeong Kim</h5>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3">
+                        Animal Husbandary
+                    </p>
                 </div>
+            </div>
 
-    
+            <!-- 4개 그리드 아래 오른쪽 공간에 위치한 Alumni 버튼 -->
+            <div class="flex justify-end mt-6">
+                <a href="alumni.html" class="inline-flex items-center px-4 py-2 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 text-sm font-semibold hover:bg-brand-100 dark:hover:bg-brand-900 transition-colors shadow-sm border border-brand-200 dark:border-brand-900">
+                    Alumni <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Publications Section -->
     <section id="publications" class="py-24">
@@ -445,7 +428,7 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        mobileMenuBtn.addEventListener('click', () => {
+        v = mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
