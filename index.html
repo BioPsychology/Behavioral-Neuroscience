@@ -403,18 +403,17 @@
                     </div>
                 </div><!-- [왼쪽 열] 닫기 -->
 
-                <!-- [오른쪽 열] Map simulation 영역 -->
-                <div class="relative h-[450px] lg:h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-center bg-slate-200 dark:bg-slate-800">
-                    <div class="absolute inset-0 opacity-40 dark:opacity-20 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                    <div class="text-center p-6 relative z-10">
-                        <div class="w-16 h-16 rounded-2xl bg-brand-600 text-white flex items-center justify-center text-3xl mx-auto mb-4 shadow-xl shadow-brand-500/40 animate-bounce">
-                            <i class="fa-solid fa-map-pin"></i>
-                        </div>
-                        <h4 class="text-lg font-bold mb-1">생물심리연구실 위치</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto">
-                            자연과학관 405호 (대학로 지하철역 3번 출구 도보 5분)
-                        </p>
-                    </div>
+                <!-- [오른쪽 열] 구글 지도 영역 -->
+                <div class="relative h-[450px] lg:h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.358245763138!2d127.027581!3d37.587313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbc233b8a1c93%3A0x6291a13e16013a96!2sKorea%20University!5e0!3m2!1sen!2skr!4v1650000000000!5m2!1sen!2skr" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div><!-- [오른쪽 열] 닫기 -->
 
             </div><!-- 전체 2열 그리드 닫기 -->
