@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ublications | Biopsychology Lab</title>
+    <title>Publications | Biopsychology Lab</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -629,30 +629,26 @@
                 </ul>
         </section>      
 
-    </main>
 
 <!-- 메인으로 돌아가기 버튼 -->
-    <div class="flex justify-center mt-12 mb-8">
-            <a href="index.html#publications" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-500/20">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Publications
-            </a>
+            <div class="text-center mt-12">
+                <a href="index.html#team" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Lab Member
+                </a>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- 하단 푸터 -->
-    <!-- Footer -->
-    <footer class="bg-[#862633] text-white py-12 w-full mt-auto">
-    <div class="w-full px-4 text-center">
+        <!-- Footer -->
+    <footer class="bg-[#862633] text-white py-12 mt-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
         <p class="text-sm sm:text-base font-medium opacity-90">
             &copy; Biopsychology Laboratory. Coded by Ji Hyun Lee. All rights reserved.
         </p>
     </div>
 </footer>
 
-              
-
-            
-            
+    
     <!-- JavaScript for Theme Toggle -->
     <script>
         const themeToggleBtn = document.getElementById('themeToggle');
@@ -664,17 +660,15 @@
             htmlElement.classList.remove('dark');
         }
 
-        if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', () => {
-                if (htmlElement.classList.contains('dark')) {
-                    htmlElement.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    htmlElement.classList.add('dark');
-                    localStorage.setItem('theme', 'dark');
-                }
-            });
-        }
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
     </script>
 </body>
 </html>
