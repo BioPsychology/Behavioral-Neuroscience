@@ -631,18 +631,16 @@
     </main>
 
 <!-- 메인으로 돌아가기 버튼 -->
-            <div class="text-center mt-12">
-                <a href="index.html#team" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-500/20">
-                    <i class="fa-solid fa-arrow-left mr-2"></i> Publications
-                </a>
-            </div>
+        <div class="text-center mt-12 pt-6">
+            <a href="index.html" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-600/20">
+                <i class="fa-solid fa-arrow-left mr-2"></i> 메인으로 돌아가기
+            </a>
         </div>
+    </main>
 
-
-            
-                <!-- Footer -->
-    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-center text-sm text-slate-500 dark:text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-center text-sm text-slate-500 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2">
             <p>&copy; Biopsychology Laboratory. Coded by Ji Hyun Lee. All rights reserved.</p>
         </div>
     </footer>
@@ -658,15 +656,17 @@
             htmlElement.classList.remove('dark');
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                htmlElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
     </script>
 </body>
 </html>
