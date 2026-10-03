@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photos | Biopsychology Lab</title>
 
-    
-    <!-- ⭐️ 여기에 파비콘 코드 추가 -->
+    <!-- ⭐️ 파비콘 코드 -->
     <link rel="icon" href="고려대로고.gif" type="image/gif">
 
     <!-- Tailwind CSS CDN -->
@@ -51,15 +50,37 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-3 group">
-                <img src="Logo1.png" alt="로고" class="auto h-10 object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x40/1e293b/ffffff?text=Logo'">
+                <img src="Logo1.png" alt="로고" class="w-auto h-10 object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x40/1e293b/ffffff?text=Logo'">
             </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="index.html#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
                 <a href="index.html#research" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Research</a>
-                <a href="index.html#team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">People</a>
+                
+                <!-- People 드롭다운 -->
+                <div class="relative group">
+                    <a href="index.html#team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-2 flex items-center gap-1">
+                        People <i class="fa-solid fa-chevron-down text-xs opacity-70"></i>
+                    </a>
+                    <div class="absolute left-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                        <a href="index.html#team" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Member</a>
+                        <a href="Alumni.html" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Alumni</a>
+                    </div>
+                </div>
+
                 <a href="index.html#publications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Publications</a>
-                <a href="photos.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Photos</a>
+                
+                <!-- Photos 드롭다운 -->
+                <div class="relative group">
+                    <a href="Photos.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-2 flex items-center gap-1">
+                        Photos <i class="fa-solid fa-chevron-down text-xs opacity-70"></i>
+                    </a>
+                    <div class="absolute left-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                        <a href="Photos.html#Facility" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Facility</a>
+                        <a href="Photos.html#Life" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Life</a>
+                    </div>
+                </div>
+                
                 <a href="index.html#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
             </nav>
 
@@ -68,90 +89,82 @@
                     <i class="fa-solid fa-moon dark:hidden"></i>
                     <i class="fa-solid fa-sun hidden dark:inline"></i>
                 </button>
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html#about" class="block py-2 text-base font-medium hover:text-brand-600">Home</a>
+            <a href="index.html#research" class="block py-2 text-base font-medium hover:text-brand-600">Research</a>
+            
+            <div class="py-1">
+                <span class="block py-2 text-base font-medium text-slate-900 dark:text-white">People</span>
+                <div class="pl-4 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 ml-2">
+                    <a href="index.html#team" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Member</a>
+                    <a href="Alumni.html" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Alumni</a>
+                </div>
+            </div>
+
+            <a href="index.html#publications" class="block py-2 text-base font-medium hover:text-brand-600">Publications</a>
+            
+            <div class="py-1">
+                <span class="block py-2 text-base font-medium text-slate-900 dark:text-white">Photos</span>
+                <div class="pl-4 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 ml-2">
+                    <a href="Photos.html#Facility" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Facility</a>
+                    <a href="Photos.html#Life" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Life</a>
+                </div>
+            </div>
+
+            <a href="index.html#contact" class="block py-2 text-base font-medium hover:text-brand-600">Contact</a>
         </div>
     </header>
 
-    <!-- Alumni Section -->
+    <!-- Photos Section -->
     <section class="pt-32 pb-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-wider">BIOPSYCHOLOGY LABORATORY</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
-                    ALUMNI
+                    PHOTOS
                 </h2>
-                
             </div>
 
-            <!-- Alumni Grid (첨부 사진 레이아웃 반영: 5열 구조) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            <!-- Photos Grid (3열 구조로 변경, 전체 가로 폭 유지 max-w-6xl) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 
-                <!-- 1번 멤버 -->
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="최주영.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
+                <!-- 1번 사진 카드 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="photo1.png" alt="Lab Photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
                     </div>
-                    <h5 class="font-bold text-base mb-0.5">Ju Young Choi</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Master Course</p>
+                    <h5 class="font-bold text-lg mb-1">Lab Facility 1</h5>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Description about facility</p>
                 </div>
 
-                <!-- 2번 멤버 -->
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="이하연.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
+                <!-- 2번 사진 카드 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="photo2.png" alt="Lab Photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
                     </div>
-                    <h5 class="font-bold text-base mb-0.5">Hayeon Lee</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Master's graduate</p>
+                    <h5 class="font-bold text-lg mb-1">Lab Life 1</h5>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Description about lab life</p>
                 </div>
 
-                <!-- 3번 멤버 -->
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-800 flex items-center justify-center text-white">
-                       <img src="정병민.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
+                <!-- 3번 사진 카드 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="photo3.png" alt="Lab Photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
                     </div>
-                    <h5 class="font-bold text-base mb-0.5">Byung Min Chung</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Master's graduate</p>
+                    <h5 class="font-bold text-lg mb-1">Event</h5>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Description about event</p>
                 </div>
-
-                <!-- 4번 멤버 -->
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="김예은.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
-                    </div>
-                    <h5 class="font-bold text-base mb-0.5">Ye Eun Kim</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Master's graduate</p>
-                </div>
-
-                <!-- 5번 멤버 -->
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="편경희.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
-                    </div>
-                    <h5 class="font-bold text-base mb-0.5">Gyeong Hee Pyeon</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Ph.D. graduate</p>
-                </div>
-
-                <!-- 추가 슬롯 (원하시는 만큼 복사해서 사용 가능) -->
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-800 flex items-center justify-center text-white">
-                       <img src="한을.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
-                    </div>
-                    <h5 class="font-bold text-base mb-0.5">Eul Han</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Master's graduate</p>
-                </div>
-
-                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-                    <div class="w-28 h-28 rounded-xl overflow-hidden mx-auto mb-3 shadow-inner bg-slate-800 flex items-center justify-center text-white">
-                        <img src="blank.png" alt="Alumni" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1e293b/ffffff?text=Alumni'">
-                    </div>
-                    <h5 class="font-bold text-base mb-0.5">Hyewon Cho</h5>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Masster's graduate</p>
-                </div>
-
 
             </div>
 
-            <!-- 메인으로 돌아가기 버튼 -->
+            <!-- Home으로 돌아가기 버튼 -->
             <div class="text-center mt-12">
                 <a href="index.html" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-500/20">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Home
@@ -160,18 +173,18 @@
         </div>
     </section>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-[#862633] text-white py-12 mt-20">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-        <p class="text-sm sm:text-base font-medium opacity-90">
-            &copy; Biopsychology Laboratory. Coded by Ji Hyun Lee. All rights reserved.
-        </p>
-    </div>
-</footer>
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm sm:text-base font-medium opacity-90">
+                &copy; Biopsychology Laboratory. Coded by Ji Hyun Lee. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
-    
-    <!-- JavaScript for Theme Toggle -->
+    <!-- JavaScript for Theme Toggle & Mobile Menu -->
     <script>
+        // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
 
@@ -189,6 +202,20 @@
                 htmlElement.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
             }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
     </script>
 </body>
