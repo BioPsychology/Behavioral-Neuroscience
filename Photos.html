@@ -132,29 +132,29 @@
                 </h2>
             </div>
 
-            <!-- Photos Grid (3열 구조로 변경, 전체 가로 폭 유지 max-w-6xl) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Photos Grid (클릭이 가능하도록 photo-card 클래스와 data 속성 추가 완료) -->
+            <div id="photoGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 
-                <!-- 1-3 -->
-                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+                <!-- 1번 사진 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
                     <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="Farewell(2007).avif" alt="Lab Photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                        <img src="Farewell(2007).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
                     </div>
                     <h5 class="font-bold text-lg mb-1">Farewell Luncheon for Dr. Eun Hye Park (2007)</h5>
                 </div>
 
-                <!-- 1-2 -->
-                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+                <!-- 2번 사진 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
                     <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="Dr.Kirino(2005).avif" alt="Lab Photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
+                        <img src="Dr.Kirino(2005).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
                     </div>
                     <h5 class="font-bold text-lg mb-1">Dr. Kirino’s laboratory visits KU (2005)</h5>
                 </div>
 
-                <!-- 1-1 -->
-                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+                <!-- 3번 사진 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
                     <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
-                        <img src="Jiri(2005).avif" alt="Lab Photo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
+                        <img src="Jiri(2005).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
                     </div>
                     <h5 class="font-bold text-lg mb-1">At the KPA meeting, Mt. Jiri (2005)</h5>
                 </div>
@@ -170,6 +170,30 @@
         </div>
     </section>
 
+    <!-- ⭐️ 전체 화면 확대 라이트박스 팝업 모달 HTML (자동 추가됨) -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <!-- 닫기 버튼 (X) -->
+        <button id="lightboxClose" class="absolute top-6 right-6 text-white text-3xl p-3 hover:text-brand-500 transition-colors z-50 focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- 이전 버튼 (<) -->
+        <button id="lightboxPrev" class="absolute left-4 sm:left-8 text-white text-3xl p-4 bg-black/40 hover:bg-black/70 rounded-full transition-all z-50 focus:outline-none">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- 다음 버튼 (>) -->
+        <button id="lightboxNext" class="absolute right-4 sm:right-8 text-white text-3xl p-4 bg-black/40 hover:bg-black/70 rounded-full transition-all z-50 focus:outline-none">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- 이미지 및 설명 컨테이너 -->
+        <div class="max-w-5xl max-h-[90vh] mx-4 text-center flex flex-col items-center">
+            <img id="lightboxImg" src="" alt="Enlarged Photo" class="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl mb-4">
+            <h3 id="lightboxTitle" class="text-white text-lg sm:text-xl font-medium tracking-wide"></h3>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-[#862633] text-white py-12 mt-20">
         <div class="max-w-6xl mx-auto px-4 text-center">
@@ -179,7 +203,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Theme Toggle & Mobile Menu -->
+    <!-- JavaScript for Theme Toggle, Mobile Menu & Lightbox -->
     <script>
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('themeToggle');
@@ -213,6 +237,85 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // ⭐️ 사진 전체화면 라이트박스 기능 자바스크립트
+        const photoCards = document.querySelectorAll('.photo-card');
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentIndex = 0;
+        const photosData = [];
+
+        // 페이지 내의 모든 사진 정보 수집
+        photoCards.forEach((card, index) => {
+            const img = card.querySelector('img');
+            const title = card.querySelector('h5').textContent;
+            photosData.push({ src: img.src, title: title });
+
+            card.addEventListener('click', () => {
+                currentIndex = index;
+                openLightbox();
+            });
+        });
+
+        function openLightbox() {
+            lightboxImg.src = photosData[currentIndex].src;
+            lightboxTitle.textContent = photosData[currentIndex].title;
+            lightboxModal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto'; // 배경 스크롤 복원
+        }
+
+        function showPrevPhoto() {
+            currentIndex = (currentIndex - 1 + photosData.length) % photosData.length;
+            openLightbox();
+        }
+
+        function showNextPhoto() {
+            currentIndex = (currentIndex + 1) % photosData.length;
+            openLightbox();
+        }
+
+        // 이벤트 연결 (X버튼, 배경 클릭, 좌우 버튼)
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        // 검은 배경을 눌렀을 때도 닫히도록 설정 (사진이나 버튼을 누른 게 아닐 때만)
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrevPhoto();
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNextPhoto();
+        });
+
+        // 키보드 지원 (좌/우 방향키, ESC)
+        document.addEventListener('keydown', (e) => {
+            if (lightboxModal.classList.contains('pointer-events-none')) return; // 팝업이 닫혀있으면 무시
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevPhoto();
+            } else if (e.key === 'ArrowRight') {
+                showNextPhoto();
+            }
         });
     </script>
 </body>
