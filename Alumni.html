@@ -50,16 +50,36 @@
     <!-- Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-3 group">
-                <img src="Logo1.png" alt="로고" class="auto h-10 object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x40/1e293b/ffffff?text=Logo'">
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="Logo1.png" alt="로고" class="w-auto h-10 object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x40/1e293b/ffffff?text=Logo'">
             </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="index.html#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
                 <a href="index.html#research" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Research</a>
-                <a href="index.html#team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">People</a>
+                
+      <div class="relative group">
+                <a href="index.html#team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-2 flex items-center gap-1">
+            People <i class="fa-solid fa-chevron-down text-xs opacity-70"></i>
+        </a>
+        <div class="absolute left-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+            <a href="index.html#team" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Member</a>
+            <a href="Alumni.html" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Alumni</a>
+        </div>
+    </div>
                 <a href="index.html#publications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Publications</a>
-                <a href="Photos.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Photos</a>
+                
+                <!-- Photos에 드롭다운 적용 -->
+    <div class="relative group">
+        <a href="Photos.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-2 flex items-center gap-1">
+            Photos <i class="fa-solid fa-chevron-down text-xs opacity-70"></i>
+        </a>
+        <div class="absolute left-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+            <a href="Photos.html#Facility" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Facility</a>
+            <a href="Photos.html#Life" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Life</a>
+        </div>
+    </div>
+                
                 <a href="index.html#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
             </nav>
 
@@ -68,9 +88,37 @@
                     <i class="fa-solid fa-moon dark:hidden"></i>
                     <i class="fa-solid fa-sun hidden dark:inline"></i>
                 </button>
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html#about" class="block py-2 text-base font-medium hover:text-brand-600">Home</a>
+            <a href="index.html#research" class="block py-2 text-base font-medium hover:text-brand-600">Research</a>
+            <div class="py-1">
+                <span class="block py-2 text-base font-medium text-slate-900 dark:text-white">People</span>
+                <div class="pl-4 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 ml-2">
+                    <a href="index.html#team" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Member</a>
+                    <a href="Alumni.html" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Alumni</a>
+                </div>
+            </div>
+            <a href="index.html#publications" class="block py-2 text-base font-medium hover:text-brand-600">Publications</a>
+            
+            <!-- Mobile Photos 및 하위 메뉴 -->
+            <div class="py-1">
+                <span class="block py-2 text-base font-medium text-slate-900 dark:text-white">Photos</span>
+                <div class="pl-4 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 ml-2">
+                    <a href="Photos.html#Facility" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Facility</a>
+                    <a href="Photos.html#Life" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Life</a>
+                </div>
+            </div>
+
+            <a href="index.html#contact" class="block py-2 text-base font-medium hover:text-brand-600">Contact</a>
+        </div>
     </header>
+
 
     <!-- Alumni Section -->
     <section class="pt-32 pb-24">
