@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos | Biopsychology Lab</title>
+
+    <!-- ⭐️ 파비콘 코드 -->
+    <link rel="icon" href="고려대로고.gif" type="image/gif">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#e11d48',
+                            600: '#be123c',
+                            700: '#9f1239',
+                            900: '#881337',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <img src="Logo1.png" alt="로고" class="w-auto h-10 object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x40/1e293b/ffffff?text=Logo'">
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
+                <a href="index.html#research" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Research</a>
+                
+                <!-- People 드롭다운 -->
+                <div class="relative group">
+                    <a href="index.html#team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-2 flex items-center gap-1">
+                        People <i class="fa-solid fa-chevron-down text-xs opacity-70"></i>
+                    </a>
+                    <div class="absolute left-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                        <a href="index.html#team" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Member</a>
+                        <a href="Alumni.html" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Alumni</a>
+                    </div>
+                </div>
+
+                <a href="index.html#publications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Publications</a>
+                
+                <!-- Photos 드롭다운 -->
+                <div class="relative group">
+                    <a href="Photos.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-2 flex items-center gap-1">
+                        Photos <i class="fa-solid fa-chevron-down text-xs opacity-70"></i>
+                    </a>
+                    <div class="absolute left-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                        <a href="Photos_Facility.html" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Facility</a>
+                        <a href="Photos_Life.html" class="block px-4 py-2.5 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-600 transition-colors">Lab Life</a>
+                    </div>
+                </div>
+                
+                <a href="index.html#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:scale-105 transition-all">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html#about" class="block py-2 text-base font-medium hover:text-brand-600">Home</a>
+            <a href="index.html#research" class="block py-2 text-base font-medium hover:text-brand-600">Research</a>
+            
+            <div class="py-1">
+                <span class="block py-2 text-base font-medium text-slate-900 dark:text-white">People</span>
+                <div class="pl-4 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 ml-2">
+                    <a href="index.html#team" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Member</a>
+                    <a href="Alumni.html" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Alumni</a>
+                </div>
+            </div>
+
+            <a href="index.html#publications" class="block py-2 text-base font-medium hover:text-brand-600">Publications</a>
+            
+            <div class="py-1">
+                <span class="block py-2 text-base font-medium text-slate-900 dark:text-white">Photos</span>
+                <div class="pl-4 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 ml-2">
+                    <a href="Photos_Facility.html" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Facility</a>
+                    <a href="Photos_Life.html" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-600">↳ Lab Life</a>
+                </div>
+            </div>
+
+            <a href="index.html#contact" class="block py-2 text-base font-medium hover:text-brand-600">Contact</a>
+        </div>
+    </header>
+
+    <!-- Photos Section -->
+    <section class="pt-32 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-wider">BIOPSYCHOLOGY LABORATORY</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
+                    PHOTOS
+                </h2>
+            </div>
+
+            <!-- Photos Grid (클릭이 가능하도록 photo-card 클래스와 data 속성 추가 완료) -->
+            <div id="photoGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+
+
+                <!-- 12-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Housing(M).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Animal Housing (Mouse)</h5>
+                </div>
+
+                <!-- 12-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Housing(R).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Animal Housing (Rat)</h5>
+                </div>
+
+                <!-- 12-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Chamber.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Fear Conditioning Chamber</h5>
+                </div>
+
+                
+
+                <!-- 11-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="뇌공학(2026).jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">KU-Synapse (2026)</h5>
+                </div>
+
+                <!-- 11-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="졸업식(2026)_2.jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Graduation (2026)</h5>
+                </div>
+
+                <!-- 11-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="졸업식(2026).jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Graduation (2026)</h5>
+                </div>
+
+                
+
+                <!-- 10-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="인지및생물(2026).png" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">인지 및 생물 심리학회, 서울 (2026)</h5>
+                </div>
+
+                <!-- 10-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Neurosplash(2026).jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Neurosplash, 제천 (2026)</h5>
+                </div>
+
+                <!-- 10-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="종강파티(2025).jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">종강파티 (2025)</h5>
+                </div>
+
+                
+
+                <!-- 9-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="인지및생물(2025).jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">인지 및 생물 심리학회, 광주 (2025)</h5>
+                </div>
+
+                <!-- 9-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="KSBNS(2024).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">KSBNS, 경주 (2024)</h5>
+                </div>
+
+                <!-- 9-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Neurosplash(2024).jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Neurosplash, 제천 (2024)</h5>
+                </div>
+
+                
+                <!-- 8-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="정지훈박사님(2023)_3.jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">정지훈 박사님 환송회 (2023)</h5>
+                </div>
+
+                <!-- 8-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="정지훈박사님(2023)_2.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">정지훈 박사님 환송회 (2023)</h5>
+                </div>
+
+                <!-- 8-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="정지훈박사님(2023).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">정지훈 박사님 환송회 (2023)</h5>
+                </div>
+
+                
+                <!-- 7-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="김은주선생님(2023).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">김은주 선생님 방문 (2023)</h5>
+                </div>
+
+                <!-- 7-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="SfN_5.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">SfN, San Diego (2022)</h5>
+                </div>
+
+                <!-- 7-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="SfN_4.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">SfN, San Diego (2022)</h5>
+                </div>
+                
+
+
+                 <!-- 6-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="SfN_3.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">SfN, San Diego (2022)</h5>
+                </div>
+
+                <!-- 6-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="SfN_2.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">SfN, San Diego (2022)</h5>
+                </div>
+
+                <!-- 6-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="SfN.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">SfN, San Diego (2022)</h5>
+                </div>
+
+                
+                <!-- 5-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="스승의날(2022).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">스승의 날 (2022)</h5>
+                </div>
+
+                <!-- 5-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Christmas_3.JPG" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Christmas (2021)</h5>
+                </div>
+
+                <!-- 5-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Christmas_2.JPG" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Christmas (2021)</h5>
+                </div>
+
+                
+
+
+                <!-- 4-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Christmas.JPG" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Christmas (2021)</h5>
+                </div>
+
+                <!-- 4-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Publication(2018).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Publication Celebration (2018)</h5>
+                </div>
+
+                <!-- 4-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="ACTIMON.jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">ACTIMON Factory (2018)</h5>
+                </div>
+
+                
+
+                <!-- 3-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Dr.Jo.jpg" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Farewell party of Dr. Jo (2016)</h5>
+                </div>
+
+                <!-- 3-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Halloween.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Halloween (2015)</h5>
+                </div>
+
+                <!-- 3-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Rat basketball.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Rat Basketball (Movie Clip)</h5>
+                </div>
+
+                
+
+                <!-- 2-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="실험동물 위령제(2011)_3.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">실험동물 위령제 (2011)</h5>
+                </div>
+
+                <!-- 2-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="실험동물 위령제(2011)_2.avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">실험동물 위령제 (2011)</h5>
+                </div>
+
+                <!-- 2-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="실험동물 위령제(2011).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">실험동물 위령제 (2011)</h5>
+                </div>
+
+                
+                
+                <!-- 1-3 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Farewell(2007).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Facility'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Farewell Luncheon for Dr. Eun Hye Park (2007)</h5>
+                </div>
+
+                <!-- 1-2 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Dr.Kirino(2005).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Lab+Life'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">Dr. Kirino’s laboratory visits KU (2005)</h5>
+                </div>
+
+                <!-- 1-1 -->
+                <div class="photo-card p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm cursor-pointer group">
+                    <div class="w-full h-64 rounded-xl overflow-hidden mx-auto mb-4 shadow-inner bg-slate-100 dark:bg-slate-800">
+                        <img src="Jiri(2005).avif" alt="Lab Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Event'">
+                    </div>
+                    <h5 class="font-bold text-lg mb-1">At the KPA meeting, Mt. Jiri (2005)</h5>
+                </div>
+
+            </div>
+
+            <!-- Home으로 돌아가기 버튼 -->
+            <div class="text-center mt-12">
+                <a href="index.html" class="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-colors shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⭐️ 전체 화면 확대 라이트박스 팝업 모달 HTML (자동 추가됨) -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <!-- 닫기 버튼 (X) -->
+        <button id="lightboxClose" class="absolute top-6 right-6 text-white text-3xl p-3 hover:text-brand-500 transition-colors z-50 focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- 이전 버튼 (<) -->
+        <button id="lightboxPrev" class="absolute left-4 sm:left-8 text-white text-3xl p-4 bg-black/40 hover:bg-black/70 rounded-full transition-all z-50 focus:outline-none">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- 다음 버튼 (>) -->
+        <button id="lightboxNext" class="absolute right-4 sm:right-8 text-white text-3xl p-4 bg-black/40 hover:bg-black/70 rounded-full transition-all z-50 focus:outline-none">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- 이미지 및 설명 컨테이너 -->
+        <div class="max-w-5xl max-h-[90vh] mx-4 text-center flex flex-col items-center">
+            <img id="lightboxImg" src="" alt="Enlarged Photo" class="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl mb-4">
+            <h3 id="lightboxTitle" class="text-white text-lg sm:text-xl font-medium tracking-wide"></h3>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#862633] text-white py-12 mt-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm sm:text-base font-medium opacity-90">
+                &copy; Biopsychology Laboratory. Coded by Ji Hyun Lee. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Theme Toggle, Mobile Menu & Lightbox -->
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ⭐️ 사진 전체화면 라이트박스 기능 자바스크립트
+        const photoCards = document.querySelectorAll('.photo-card');
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentIndex = 0;
+        const photosData = [];
+
+        // 페이지 내의 모든 사진 정보 수집
+        photoCards.forEach((card, index) => {
+            const img = card.querySelector('img');
+            const title = card.querySelector('h5').textContent;
+            photosData.push({ src: img.src, title: title });
+
+            card.addEventListener('click', () => {
+                currentIndex = index;
+                openLightbox();
+            });
+        });
+
+        function openLightbox() {
+            lightboxImg.src = photosData[currentIndex].src;
+            lightboxTitle.textContent = photosData[currentIndex].title;
+            lightboxModal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto'; // 배경 스크롤 복원
+        }
+
+        function showPrevPhoto() {
+            currentIndex = (currentIndex - 1 + photosData.length) % photosData.length;
+            openLightbox();
+        }
+
+        function showNextPhoto() {
+            currentIndex = (currentIndex + 1) % photosData.length;
+            openLightbox();
+        }
+
+        // 이벤트 연결 (X버튼, 배경 클릭, 좌우 버튼)
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        // 검은 배경을 눌렀을 때도 닫히도록 설정 (사진이나 버튼을 누른 게 아닐 때만)
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrevPhoto();
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNextPhoto();
+        });
+
+        // 키보드 지원 (좌/우 방향키, ESC)
+        document.addEventListener('keydown', (e) => {
+            if (lightboxModal.classList.contains('pointer-events-none')) return; // 팝업이 닫혀있으면 무시
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevPhoto();
+            } else if (e.key === 'ArrowRight') {
+                showNextPhoto();
+            }
+        });
+    </script>
+</body>
+</html>
