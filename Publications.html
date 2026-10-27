@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photos | Biopsychology Lab</title>
+    <title>Publications | Biopsychology Lab</title>
 
     <!-- ⭐️ 파비콘 코드 -->
     <link rel="icon" href="고려대로고.gif" type="image/gif">
@@ -146,18 +146,7 @@
             </div>
             
             <!-- 논문 리스트 -->
-            <ul class="space-y-4 pl-2">
-                <li class="flex items-start text-base leading-relaxed">
-                    <span class="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-600 dark:bg-slate-400"></span>
-                    <div>
-                        Lee, J., Cho, E., & 
-                        <strong class="font-bold text-[#7A2222] dark:text-rose-400">Jo, Y. S. </strong>
-                        (2026). The medial prefrontal cortex is required for prospective navigation in spatial sequential memory. 
-                        <em>Frontiers in Behavioral Neuroscience, 20, </em>1930201.
-                        <a href="https://doi.org/10.3389/fnbeh.2026.1930201" target="_blank" class="text-[#7A2222] dark:text-rose-400 hover:underline font-medium ml-1">(link)</a>
-                    </div>
-                </li>
-                
+            <ul class="space-y-4 pl-2">                
                 <li class="flex items-start text-base leading-relaxed">
                     <span class="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-600 dark:bg-slate-400"></span>
                     <div>
@@ -168,6 +157,18 @@
                         <a href="https://doi.org/10.1016/j.brs.2026.103197" target="_blank" class="text-[#7A2222] dark:text-rose-400 hover:underline font-medium ml-1">(link)</a>
                     </div>   
                 </li>
+
+                  <li class="flex items-start text-base leading-relaxed">
+                    <span class="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-600 dark:bg-slate-400"></span>
+                    <div>
+                        Lee, J., Cho, E., & 
+                        <strong class="font-bold text-[#7A2222] dark:text-rose-400">Jo, Y. S. </strong>
+                        (2026). The medial prefrontal cortex is required for prospective navigation in spatial sequential memory. 
+                        <em>Frontiers in Behavioral Neuroscience, 20, </em>1930201.
+                        <a href="https://doi.org/10.3389/fnbeh.2026.1930201" target="_blank" class="text-[#7A2222] dark:text-rose-400 hover:underline font-medium ml-1">(link)</a>
+                    </div>
+                </li>
+                
 
                 <li class="flex items-start text-base leading-relaxed">
                     <span class="mr-3 mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-slate-600 dark:bg-slate-400"></span>
@@ -705,8 +706,9 @@
 </footer>
 
     
-    <!-- JavaScript for Theme Toggle -->
+    <!-- JavaScript for Theme Toggle & Mobile Menu -->
     <script>
+        // 1. 다크모드 토글 로직
         const themeToggleBtn = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
 
@@ -716,15 +718,32 @@
             htmlElement.classList.remove('dark');
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                htmlElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
     </script>
 </body>
 </html>
