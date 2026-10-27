@@ -500,7 +500,7 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        v = mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
@@ -510,22 +510,7 @@
             });
         });
 
-        // Contact Form Submission Handling
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            submitBtn.innerText = '전송 완료되었습니다!';
-            submitBtn.classList.remove('bg-brand-600', 'hover:bg-brand-700');
-            submitBtn.classList.add('bg-emerald-600');
-            contactForm.reset();
-            setTimeout(() => {
-                submitBtn.innerText = originalText;
-                submitBtn.classList.remove('bg-emerald-600');
-                submitBtn.classList.add('bg-brand-600', 'hover:bg-brand-700');
-            }, 3000);
-        });
+      
     </script>
 </body>
 </html>
